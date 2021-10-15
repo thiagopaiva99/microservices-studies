@@ -6,9 +6,12 @@ const CommentList = ({ comments }) => {
       <p>{comments.length} comments</p>
       <ul>
         {comments &&
-          comments.map((comment) => (
-            <li key={comment.id}>{comment.content}</li>
-          ))}
+          comments.map(
+            (comment) =>
+              comment.status === 'approved' && (
+                <li key={comment.id}>{comment.content}</li>
+              )
+          )}
       </ul>
     </div>
   );
