@@ -6,9 +6,12 @@ import { signinRouter } from './routes/signin'
 import { signupRouter } from './routes/signup'
 import { signoutRouter } from './routes/signout'
 
+import { errorHandler } from './middlewares/error-handler'
+
 const app = express();
 
 app.use(json());
+app.use(errorHandler())
 
 app.use(currentUserRouter);
 app.use(signinRouter);
