@@ -14,6 +14,11 @@ const signupBodyValidator = [
 ]
 
 router.post('/api/users/signup', signupBodyValidator, (req: Request, res: Response) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).send(errors.array());
+    }
+
     const { email, password } = req.body;    
 })
 
